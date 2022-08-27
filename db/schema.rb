@@ -31,7 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_27_212536) do
     t.string "description"
     t.string "platform"
     t.string "registration"
-    t.string "timings"
+    t.datetime "timings"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "verified", default: false

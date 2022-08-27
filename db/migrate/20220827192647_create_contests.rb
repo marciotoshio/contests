@@ -5,7 +5,7 @@ class CreateContests < ActiveRecord::Migration[7.0]
       t.string :description
       t.string :platform
       t.string :registration
-      t.string :timings
+      t.datetime :timings
 
       t.timestamps
     end
