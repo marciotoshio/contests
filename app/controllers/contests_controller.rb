@@ -3,7 +3,7 @@ class ContestsController < ApplicationController
 
   # GET /contests or /contests.json
   def index
-    @contests = Contest.all
+    @contests = Contest.verified
   end
 
   # GET /contests/1 or /contests/1.json
@@ -60,7 +60,7 @@ class ContestsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contest
-      @contest = Contest.find(params[:id])
+      @contest = Contest.verified.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
