@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Contests</h1>
+
+<table id="contests">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Platform</th>
+    <th>Registration</th>
+    <th>Timings</th>
+    <th>Created at</th>
+    <th>Verified</th>
+  </tr>
+  <% @contests.each do |contest| %>
+    <tr>
+      <td><%= contest.name %></td>
+      <td><%= contest.description %></td>
+      <td><%= contest.platform %></td>
+      <td><%= contest.registration %></td>
+      <td><%= contest.timings %></td>
+      <td><%= contest.created_at %></td>
+      <td>
+        <%= form_with(model: contest, url: admin_update_contest_path(contest)) do |form| %>
+          <%= form.submit contest.verified.to_s %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

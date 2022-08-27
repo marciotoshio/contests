@@ -4,9 +4,8 @@
 
 <div id="contests">
   <% @contests.each do |contest| %>
-    <%= render contest %>
-    <p>
-      <%= link_to "Show this contest", contest %>
+  </p>
+      <%= link_to contest.name, contest %>
     </p>
   <% end %>
 </div>
