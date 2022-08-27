@@ -2,6 +2,11 @@
 
 <h1>Contests</h1>
 
+<div id="filters">
+  <p><%= link_to "Latest", contests_path(q: 'latest') %></p>
+  <%= render "search_form" %>
+</div>
+
 <div id="contests">
   <% @contests.each do |contest| %>
   </p>

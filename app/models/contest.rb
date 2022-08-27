@@ -4,7 +4,7 @@ class Contest < ApplicationRecord
 
   def self.search(query = nil)
     return [Contest.verified.all.sort_by(&:created_at).last] if query == 'latest'
-    return Contest.verified.where("name like ?", "%#{query}%") if query
+    return Contest.verified.where("lower(name) like ?", "%#{query.downcase}%") if query
     Contest.verified
   end
 end
