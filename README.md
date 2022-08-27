@@ -9,6 +9,13 @@
 * System dependencies
   Docker
 
+* Project source
+  https://github.com/marciotoshio/contests
+
+* Deployment url
+  https://contestsx.herokuapp.com/
+
+
 # Development
 
 First build a new image for the container:

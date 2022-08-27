@@ -3,7 +3,7 @@
 <h1>Contests</h1>
 
 <div id="filters">
-  <p><%= link_to "Latest", contests_path(q: 'latest') %></p>
+  <p><%= link_to "Latest", contests_path(q: 'latest') %> | <%= link_to "Most Popular", contests_path(q: 'most_popular') %></p>
   <%= render "search_form" %>
 </div>
 

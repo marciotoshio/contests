@@ -1,5 +1,5 @@
 class ContestsController < ApplicationController
-  before_action :set_contest, only: %i[ show edit update destroy ]
+  before_action :set_contest, only: %i[ show registration ]
 
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
 
@@ -26,7 +26,21 @@ class ContestsController < ApplicationController
         format.html { redirect_to contests_path, notice: "Contest was successfully created." }
         format.json { render :show, status: :created, location: @contest }
       else
+        # TODO: log error
         format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @contest.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def registration
+    respond_to do |format|
+      if @contest.do_registration
+        format.html { redirect_to contests_path, notice: "Successfully registered into contest." }
+        format.json { render :show, status: :ok, location: @contest }
+      else
+        # TODO: log error
+        format.html { redirect_to admin_contests_path, notice: "An error ocurred while registering into contest." }
         format.json { render json: @contest.errors, status: :unprocessable_entity }
       end
     end

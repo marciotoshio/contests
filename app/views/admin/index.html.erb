@@ -10,6 +10,7 @@
     <th>Registration</th>
     <th>Timings</th>
     <th>Created at</th>
+    <th>Count</th>
     <th>Verified</th>
   </tr>
   <% @contests.each do |contest| %>
@@ -20,6 +21,7 @@
       <td><%= contest.registration %></td>
       <td><%= contest.timings %></td>
       <td><%= contest.created_at %></td>
+      <td><%= contest.count %></td>
       <td>
         <%= form_with(model: contest, url: admin_update_contest_path(contest)) do |form| %>
           <%= form.submit contest.verified.to_s %>

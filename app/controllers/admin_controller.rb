@@ -18,7 +18,8 @@ class AdminController < ApplicationController
         format.html { redirect_to admin_contests_path, notice: "Contest was successfully updated." }
         format.json { render :show, status: :ok, location: @contest }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        # TODO: log error
+        format.html { redirect_to admin_contests_path, notice: "An error occured." }
         format.json { render json: @contest.errors, status: :unprocessable_entity }
       end
     end

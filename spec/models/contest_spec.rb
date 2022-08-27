@@ -47,4 +47,24 @@ RSpec.describe Contest, type: :model do
       it { expect(search_case_insensitive.count).to eq(1) }
     end
   end
+
+  describe '.most_popular' do
+    subject(:most_popular) { Contest.most_popular }
+
+    before do
+      Contest.create(name: 'contest 1', verified: true, count: 5)
+      Contest.create(name: 'contest 2', verified: true, count: 15)
+      Contest.create(name: 'contest 3', verified: true, count: 10)
+    end
+
+    it { expect(most_popular.name).to eq('contest 2') }
+  end
+
+  describe '#do_registration' do
+    let(:contest) { Contest.create(name: 'contest 1', verified: true) }
+
+    before { contest.do_registration }
+
+    it { expect(contest.count).to eq(1) }
+  end
 end

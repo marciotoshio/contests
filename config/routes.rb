@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/contests', to: 'contests#index'
   get '/contests/new', to: 'contests#new', as: 'new_contest'
   get '/contests/:id', to: 'contests#show', as: 'contest'
+  get '/contests/:id/registration', to: 'contests#registration', as: 'contest_registration'
   post '/contests', to: 'contests#create'
 
   get '/admin/contests', to: 'admin#index'
