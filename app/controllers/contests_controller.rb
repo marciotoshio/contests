@@ -5,7 +5,7 @@ class ContestsController < ApplicationController
 
   # GET /contests or /contests.json
   def index
-    @contests = Contest.verified
+      @contests = Contest.search(params[:q])
   end
 
   # GET /contests/1 or /contests/1.json
